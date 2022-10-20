@@ -21,9 +21,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Install DEVisible package
-        run: npm i -D devisible
+        run: npm i -g devisible
       - name: Run DEVisible NPM package
         env:
           API_KEY: ${{ secrets.devisibleKey }}
         run: |
-          ./node_modules/devisible/dist/devisible.js --apiKey $"API_KEY" --buildPath /build --command "npm run build"
+          npx devisible --apiKey $"API_KEY" --buildPath /build --command "npm run build"
